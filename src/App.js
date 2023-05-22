@@ -1,41 +1,23 @@
 import "./App.css";
-import { useFetchCharData } from "./hooks/useFetchCharData.jsx";
-import Header from "./components/Header";
-import CharacterCard from "./components/CharacterCard";
-import InputField from "./components/InputField";
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Character from "./pages/Character";
+import Locations from "./pages/Locations";
+import Location from "./pages/Location";
+import Episodes from "./pages/Episodes";
+import Episode from "./pages/Episode";
 
 function App() {
-  const [inputName, setInputName] = useState(null);
-  const [isAlive, setIsAlive] = useState(null);
-  const { data, isLoading } = useFetchCharData(inputName, isAlive);
-
-  if (isLoading) return "Loading";
-
-  function handleSearch(input) {
-    setInputName(input);
-  }
-
-  function handleCheck(checked) {
-    checked && setIsAlive("alive");
-  }
-
   return (
-    <div>
-      <Header />
-      <InputField searchName={handleSearch} isAlive={handleCheck} />
-
-      <div className="flex flex-wrap">
-        {data.results.map((character) => (
-          <CharacterCard
-            key={character.id}
-            img={character.image}
-            name={character.name}
-            status={character.status}
-          />
-        ))}
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/character/:id" element={<Character />} />
+      <Route path="/locations" element={<Locations />} />
+      <Route path="/location/:id" element={<Location />} />
+      <Route path="/episodes" element={<Episodes />} />
+      <Route path="/episode/:id" element={<Episode />} />
+    </Routes>
   );
 }
 

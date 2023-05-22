@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CharacterCard(props) {
   return (
@@ -11,7 +12,9 @@ function CharacterCard(props) {
           <h2 className="card-title">{props.name}</h2>
           <p>{props.status}</p>
           <div className="card-actions justify-center">
-            <button className="btn btn-primary">Details</button>
+            <Link to={`/character/${props.id}`}>
+              <button className="btn btn-primary">Details</button>
+            </Link>
           </div>
         </div>
       </div>

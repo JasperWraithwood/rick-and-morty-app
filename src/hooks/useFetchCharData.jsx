@@ -1,12 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-export const useFetchCharData = (name, status) =>
-  useQuery(["characters", name, status], async () => {
+export const useFetchCharData = (page, name, status) =>
+  useQuery(["characters", page, name, status], async () => {
     const params = new URLSearchParams();
     if (name) {
       params.append("name", name);
     }
     if (status) {
       params.append("status", status);
+    }
+    if (page) {
+      params.append("page", page);
     }
 
     const response = await fetch(
