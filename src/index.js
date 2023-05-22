@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { BrowserRouter } from "react-router-dom";
+
+import reportWebVitals from "./reportWebVitals";
+
+import App from "./App";
+import "./index.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

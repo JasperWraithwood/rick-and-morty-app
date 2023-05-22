@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -7,6 +6,8 @@ import Locations from "./pages/Locations";
 import Location from "./pages/Location";
 import Episodes from "./pages/Episodes";
 import Episode from "./pages/Episode";
+
+import "./App.css";
 
 function App() {
   return (
