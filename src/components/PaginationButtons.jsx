@@ -1,6 +1,6 @@
 import React from "react";
 
-function PaginationButtons({ num, setNum, cur, setCur, totalPages }) {
+function PaginationButtons({ num, setNum, totalPages }) {
   const pages = [
     { page: num },
     { page: num + 1 <= totalPages ? num + 1 : null },

@@ -11,7 +11,6 @@ function Characters() {
   const [inputName, setInputName] = useState(null);
   const [isAlive, setIsAlive] = useState(null);
   const [page, setPage] = useState(1);
-  const [curPage, setCurPage] = useState(1);
   const { data, isLoading } = useFetchCharData(page, inputName, isAlive);
 
   if (isLoading) return "Loading";
@@ -25,9 +24,14 @@ function Characters() {
     checked && setIsAlive("alive");
   }
 
+  function defaultPage() {
+    setPage(1);
+    setInputName(null);
+  }
+
   return (
     <div>
-      <Header />
+      <Header defaultPage={defaultPage} />
       <InputField searchName={handleSearch} isAlive={handleCheck} />
 
       <div className="flex flex-wrap">
@@ -45,8 +49,6 @@ function Characters() {
         <PaginationButtons
           num={page}
           setNum={setPage}
-          cur={curPage}
-          setCur={setCurPage}
           totalPages={data.info.pages}
         />
       </div>

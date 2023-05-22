@@ -2,11 +2,13 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <div className="bg-blue-500 p-5 text-white shadow-lg rounded-lg text-center">
       <Link to="/" className="text-white hover:text-blue-700">
-        <h1 className="text-3xl">Rick and Morty App</h1>
+        <h1 onClick={props.defaultPage} className="text-3xl">
+          Rick and Morty App
+        </h1>
       </Link>
       <div className="flex justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6">
         <Link to="/locations" className="text-white hover:text-blue-700">
