@@ -10,9 +10,14 @@ function Characters() {
   const [inputName, setInputName] = useState(null);
   const [isAlive, setIsAlive] = useState(null);
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useFetchCharData(page, inputName, isAlive);
+  const { data, isLoading, isError, error } = useFetchCharData(
+    page,
+    inputName,
+    isAlive
+  );
 
   if (isLoading) return "Loading";
+  if (isError) return <p>An error has occurred: {error.message}</p>;
 
   function handleSearch(input) {
     setInputName(input);
