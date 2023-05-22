@@ -5,7 +5,6 @@ import { useTable } from "react-table";
 import { Link } from "react-router-dom";
 
 import { useFetchEpisodesData } from "../hooks/useFetchEpisodesData";
-import Header from "../components/Header";
 
 function Episodes() {
   const { data, isLoading } = useFetchEpisodesData();
@@ -50,7 +49,6 @@ function Episodes() {
 
   return (
     <div>
-      <Header />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

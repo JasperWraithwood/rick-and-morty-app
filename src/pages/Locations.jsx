@@ -5,7 +5,6 @@ import { useTable } from "react-table";
 import { Link } from "react-router-dom";
 
 import { useFetchLocationsData } from "../hooks/useFetchLocationsData";
-import Header from "../components/Header";
 
 function Locations() {
   const { data, isLoading } = useFetchLocationsData();
@@ -50,7 +49,6 @@ function Locations() {
 
   return (
     <div>
-      <Header />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
