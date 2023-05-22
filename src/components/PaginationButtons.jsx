@@ -1,15 +1,15 @@
 import React from "react";
 
-function PaginationButtons({ num, setNum, cur, setCur }) {
+function PaginationButtons({ num, setNum, cur, setCur, totalPages }) {
   const pages = [
     { page: num },
-    { page: num + 1 },
-    { page: num + 2 },
-    { page: num + 3 },
-  ];
+    { page: num + 1 <= totalPages ? num + 1 : null },
+    { page: num + 2 <= totalPages ? num + 2 : null },
+    { page: num + 3 <= totalPages ? num + 3 : null },
+  ].filter((pg) => pg.page !== null);
 
   function next() {
-    setNum(++num);
+    if (num < totalPages) setNum(++num);
   }
   function back() {
     num > 1 && setNum(--num);
@@ -42,6 +42,7 @@ function PaginationButtons({ num, setNum, cur, setCur }) {
       ))}
       <button
         onClick={next}
+        disabled={num === totalPages}
         className="h-12 border-2  border-indigo-600
                px-4 rounded-r-lg hover:bg-indigo-600 hover:text-white"
       >

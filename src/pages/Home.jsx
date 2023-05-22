@@ -18,6 +18,7 @@ function Characters() {
 
   function handleSearch(input) {
     setInputName(input);
+    setPage(1);
   }
 
   function handleCheck(checked) {
@@ -46,6 +47,7 @@ function Characters() {
           setNum={setPage}
           cur={curPage}
           setCur={setCurPage}
+          totalPages={data.info.pages}
         />
       </div>
     </div>
