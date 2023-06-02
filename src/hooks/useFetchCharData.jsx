@@ -4,13 +4,17 @@ export const useFetchCharData = (page, name, status) =>
   useQuery(
     ["characters", page, name, status],
     async () => {
+      console.log(name);
       const params = new URLSearchParams();
+
       if (name) {
         params.append("name", name);
       }
+
       if (status) {
-        params.append("status", status);
+        params.append("status", "alive");
       }
+
       if (page) {
         params.append("page", page);
       }
@@ -24,6 +28,7 @@ export const useFetchCharData = (page, name, status) =>
       }
 
       const charData = await response.json();
+
       return charData;
     },
     {

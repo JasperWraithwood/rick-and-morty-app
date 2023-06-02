@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { useFetchSingleEpisodeData } from "../hooks/useFetchSingleEpisodeData";
-import CharacterCard from "../components/CharacterCard";
+import { CharacterCard } from "../components/CharacterCard";
 
 async function fetchCharacter(url) {
   const response = await fetch(url);

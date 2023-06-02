@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 
 import { useTable } from "react-table";
-
 import { Link } from "react-router-dom";
 
 import { useFetchEpisodesData } from "../hooks/useFetchEpisodesData";
@@ -34,13 +33,7 @@ function Episodes() {
     []
   );
 
-  const tableData = useMemo(() => {
-    if (data) {
-      return data.results;
-    } else {
-      return [];
-    }
-  }, [data]);
+  const tableData = useMemo(() => data?.results ?? [], [data]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: tableData });

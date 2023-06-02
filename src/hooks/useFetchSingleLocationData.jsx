@@ -5,6 +5,7 @@ export const useFetchSingleLocationData = (id) =>
     const response = await fetch(
       `https://rickandmortyapi.com/api/location/${id}`
     );
+
     const singleLocationData = await response.json();
 
     return singleLocationData;
