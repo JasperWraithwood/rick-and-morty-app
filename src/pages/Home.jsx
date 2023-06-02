@@ -7,33 +7,30 @@ import InputField from "../components/InputField.jsx";
 import PaginationButtons from "../components/PaginationButtons.jsx";
 
 function Characters() {
-  const [inputName, setInputName] = useState(null);
-  const [isAlive, setIsAlive] = useState(null);
+  const [searchName, setSearchName] = useState(null);
+
+  const [isAlive, setIsAlive] = useState(false);
+
   const [page, setPage] = useState(1);
-  const { data, isLoading, isError, error } = useFetchCharData(
+
+  const { data, isLoading, isError, error, isFetching } = useFetchCharData(
     page,
-    inputName,
+    searchName,
     isAlive
   );
 
   if (isLoading) return "Loading";
-  if (isError) return <p>An error has occurred: {error.message}</p>;
-
-  function handleSearch(input) {
-    setInputName(input);
-    setPage(1);
-  }
-
-  function handleCheck(checked) {
-    checked && setIsAlive("alive");
-  }
 
   return (
     <div>
-      <InputField searchName={handleSearch} isAlive={handleCheck} />
-
-      {!isLoading && <CharactersList characters={data.results} />}
-
+      <InputField
+        searchName={searchName}
+        setSearchName={setSearchName}
+        isAlive={isAlive}
+        setIsAlive={setIsAlive}
+      />
+      {isError && <p>An error has occurred: {error.message}</p>}}
+      {!isLoading && !error && <CharactersList characters={data.results} />}
       <div className="flex justify-center mb-4">
         <PaginationButtons
           num={page}

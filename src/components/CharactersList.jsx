@@ -1,6 +1,6 @@
 import React from "react";
 
-import CharacterCard from "./CharacterCard";
+import { CharacterCard } from "./";
 
 function CharactersList({ characters }) {
   return (

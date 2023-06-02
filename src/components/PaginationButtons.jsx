@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 function PaginationButtons({ num, setNum, totalPages }) {
-  const pages = [
-    { page: num },
-    { page: num + 1 <= totalPages ? num + 1 : null },
-    { page: num + 2 <= totalPages ? num + 2 : null },
-    { page: num + 3 <= totalPages ? num + 3 : null },
-  ].filter((pg) => pg.page !== null);
+  const pages = useMemo(
+    () =>
+      [
+        { page: num },
+        { page: num + 1 <= totalPages ? num + 1 : null },
+        { page: num + 2 <= totalPages ? num + 2 : null },
+        { page: num + 3 <= totalPages ? num + 3 : null },
+      ].filter((pg) => pg.page !== null),
+    [num, totalPages]
+  );
 
-  function next() {
-    if (num < totalPages) setNum(++num);
-  }
-  function back() {
-    num > 1 && setNum(--num);
-  }
+  const next = () => num < totalPages && setNum(++num);
+
+  const back = () => num > 1 && setNum(--num);
+
+  const isNextButtonDisabled = num === totalPages;
+
   return (
     <div className="flex bg-white rounded-lg font-[Poppins]">
       <button
@@ -30,19 +34,19 @@ function PaginationButtons({ num, setNum, totalPages }) {
           ></path>
         </svg>
       </button>
-      {pages.map((pg, i) => (
+      {pages.map(({ page }) => (
         <button
-          key={i}
-          onClick={() => setNum(pg.page)}
+          key={page}
+          onClick={() => setNum(page)}
           className={`h-12 border-2 border-r-0 border-indigo-600
-          w-12 ${num === pg.page && "bg-indigo-600 text-white"}`}
+          w-12 ${num === page && "bg-indigo-600 text-white"}`}
         >
-          {pg.page}
+          {page}
         </button>
       ))}
       <button
         onClick={next}
-        disabled={num === totalPages}
+        disabled={isNextButtonDisabled}
         className="h-12 border-2  border-indigo-600
                px-4 rounded-r-lg hover:bg-indigo-600 hover:text-white"
       >

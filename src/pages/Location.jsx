@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { useFetchSingleLocationData } from "../hooks/useFetchSingleLocationData";
-import CharacterCard from "../components/CharacterCard";
+import { CharacterCard } from "../components";
 
 async function fetchCharacter(url) {
   const response = await fetch(url);

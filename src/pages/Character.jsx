@@ -3,11 +3,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { useFetchSinglecharData } from "../hooks/useFetchSinglecharData";
+import { useFetchSingleCharData } from "../hooks/useFetchSinglecharData";
 
 function Character() {
   const { id } = useParams();
-  const { data, isLoading } = useFetchSinglecharData(id);
+  const { data, isLoading } = useFetchSingleCharData(id);
 
   if (isLoading) return "Loading";
 
