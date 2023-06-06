@@ -10,6 +10,8 @@ import Episode from "./pages/Episode";
 
 import "./App.css";
 
+import "./fonts.css";
+
 function App() {
   return (
     <Routes>
