@@ -31,7 +31,7 @@ function Character() {
               <p>Origin: {data.origin.name} </p>
               <Link
                 to={`/location/${locationID}`}
-                className="text-blue-700 hover:underline"
+                className="text-squidblue hover:underline"
               >
                 <p>Location: {data.location.name} </p>
               </Link>

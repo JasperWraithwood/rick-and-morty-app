@@ -12,11 +12,11 @@ export const EntryPage = () => {
       }}
     >
       <div className="text-center pt-5">
-        <h1 className="text-neongreen font-600 drop-shadow-xl mt-5 font-header text-8xl hover:text-squidblue">
+        <h1 className="text-neongreen font-600 drop-shadow-xl mt-5 font-header text-9xl hover:text-squidblue">
           The Rick and Morty App
         </h1>
       </div>
-      <div className="flex-1 text-center pt-20">
+      <div className="flex-1 text-center pt-32">
         <EntryPageButton moveToPage="Characters" />
         <EntryPageButton moveToPage="Locations" />
         <EntryPageButton moveToPage="Episodes" />
