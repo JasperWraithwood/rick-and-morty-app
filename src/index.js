@@ -25,7 +25,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/rick-and-morty-app">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </QueryClientProvider>
