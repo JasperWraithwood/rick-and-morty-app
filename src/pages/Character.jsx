@@ -1,9 +1,9 @@
 import React from "react";
 
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 import { useFetchSinglecharData } from "../hooks/useFetchSinglecharData";
+import { InformationField } from "../components/InformationField";
 
 function Character() {
   const { id } = useParams();
@@ -14,28 +14,37 @@ function Character() {
 
   const locationID = data.location.url.slice(41);
 
+  const informationFields = [
+    { title: "Name", value: data.name },
+    { title: "Status", value: data.status },
+    { title: "Species", value: data.species },
+    { title: "Type", value: data.type },
+    { title: "Gender", value: data.gender },
+    { title: "Origin", value: data.origin.name },
+    {
+      title: "Location",
+      value: data.location.name,
+      isLink: true,
+      link: `/location/${locationID}`,
+    },
+  ];
+
   return (
     <div>
-      <div className="hero h-full bg-base bg-opacity-50 backdrop-blur-xl">
+      <div className="hero bg-base bg-opacity-50 backdrop-blur-xl">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src={data.image}
             alt=""
-            className="max-w-sm rounded-lg shadow-2xl"
+            className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
           />
           <div>
-            <p>Name: {data.name}</p>
-            <p>Status: {data.status}</p>
-            <p>Species: {data.species}</p>
-            {data.type !== "" && <p>Type: {data.type}</p>}
-            <p>Gender: {data.gender}</p>
-            <p>Origin: {data.origin.name} </p>
-            <Link
-              to={`/location/${locationID}`}
-              className="text-squidblue hover:underline"
-            >
-              <p>Location: {data.location.name} </p>
-            </Link>
+            {informationFields.map(
+              (field, index) =>
+                field.value !== "" && (
+                  <InformationField key={index} {...field} />
+                )
+            )}
           </div>
         </div>
       </div>

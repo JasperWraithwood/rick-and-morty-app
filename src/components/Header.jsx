@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { EntryPageButton } from "./EntryPageButton";
+
 function Header() {
   return (
     <div className="p-5 text-black rounded-lg text-center ">
@@ -10,15 +12,10 @@ function Header() {
           The Rick and Morty App
         </h1>
       </Link>
-      <div className="flex justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6">
-        <Link to="/locations" className="text-white hover:text-blue-700">
-          <h2 className="text-lg mr-3">Locations</h2>
-        </Link>
-        <h2 className="text-lg">
-          <Link to="/episodes" className="text-white hover:text-blue-700">
-            Episodes
-          </Link>
-        </h2>
+      <div className="pl-48">
+        <EntryPageButton moveToPage="Characters" />
+        <EntryPageButton moveToPage="Locations" />
+        <EntryPageButton moveToPage="Episodes" />
       </div>
     </div>
   );

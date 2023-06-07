@@ -39,11 +39,13 @@ function Characters() {
 
   return (
     <div>
-      <InputField
-        status={status}
-        setStatus={handleStatusChange}
-        handleSearchClick={handleSearchClick}
-      />
+      <div>
+        <InputField
+          status={status}
+          setStatus={handleStatusChange}
+          handleSearchClick={handleSearchClick}
+        />
+      </div>
       {isError && <p>An error has occurred: {error.message}</p>}
       {!isLoading && !error && <CharactersList characters={data.results} />}
 
