@@ -15,7 +15,7 @@ function InputField({ status, setStatus, handleSearchClick }) {
 
   return (
     <div className="w-full flex justify-center my-5 ">
-      <form className="w-1/2 flex justify-between border p-2 rounded-md bg-white">
+      <form className="w-full sm:w-1/2 flex flex-col sm:flex-row justify-between border p-2 rounded-md bg-white">
         <input
           className="flex-grow mr-2 outline-none"
           onChange={handleSearchChange}

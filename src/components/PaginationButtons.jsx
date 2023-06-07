@@ -29,7 +29,7 @@ function PaginationButtons({ num, setNum, totalPages, updateQueryParam }) {
   }
 
   return (
-    <div className="flex bg-white rounded-lg font-[Poppins]">
+    <div className="flex bg-white rounded-lg">
       <button
         onClick={firstPage}
         disabled={num === 1}
