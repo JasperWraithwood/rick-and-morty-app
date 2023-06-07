@@ -33,8 +33,8 @@ function PaginationButtons({ num, setNum, totalPages, updateQueryParam }) {
       <button
         onClick={firstPage}
         disabled={num === 1}
-        className="h-12 border-2 border-r-0 border-indigo-600
-               px-4 rounded-l-lg hover:bg-indigo-600 hover:text-white"
+        className="h-12 border-2 border-r-0 border-squidblue
+               px-4 rounded-l-lg hover:bg-squidblue hover:text-white"
       >
         First page
       </button>
@@ -42,8 +42,8 @@ function PaginationButtons({ num, setNum, totalPages, updateQueryParam }) {
         <button
           key={i}
           onClick={() => handlePageChange(pg.page)}
-          className={`h-12 border-2 border-r-0 border-indigo-600
-          w-12 ${num === pg.page && "bg-indigo-600 text-white"}`}
+          className={`h-12 border-2 border-r-0 border-squidblue
+          w-12 ${num === pg.page && "bg-squidblue text-white"}`}
         >
           {pg.page}
         </button>
@@ -51,8 +51,8 @@ function PaginationButtons({ num, setNum, totalPages, updateQueryParam }) {
       <button
         onClick={lastPage}
         disabled={num === totalPages}
-        className="h-12 border-2  border-indigo-600
-               px-4 rounded-r-lg hover:bg-indigo-600 hover:text-white"
+        className="h-12 border-2  border-squidblue
+               px-4 rounded-r-lg hover:bg-squidblue hover:text-white"
       >
         Last page
       </button>
