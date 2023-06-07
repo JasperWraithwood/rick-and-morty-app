@@ -9,11 +9,13 @@ import CharacterCard from "../components/CharacterCard";
 
 async function fetchCharacter(url) {
   const response = await fetch(url);
+
   return response.json();
 }
 
 function Episode() {
   const { id } = useParams();
+
   const { data: episodeData, isLoading } = useFetchSingleEpisodeData(id);
 
   const { data: characters, isLoading: isCharactersLoading } = useQuery(

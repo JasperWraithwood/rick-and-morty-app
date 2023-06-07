@@ -7,6 +7,7 @@ import { useFetchSinglecharData } from "../hooks/useFetchSinglecharData";
 
 function Character() {
   const { id } = useParams();
+
   const { data, isLoading } = useFetchSinglecharData(id);
 
   if (isLoading) return "Loading";
