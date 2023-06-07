@@ -20,6 +20,7 @@ export const useFetchEpisodesData = () =>
       }
 
       const additionalPagesData = await Promise.all(fetchPromises);
+
       episodesData.results.push(
         ...additionalPagesData.flatMap((data) => data.results)
       );

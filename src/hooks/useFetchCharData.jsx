@@ -24,6 +24,7 @@ export const useFetchCharData = (page, name, status) =>
       }
 
       const charData = await response.json();
+
       return charData;
     },
     {

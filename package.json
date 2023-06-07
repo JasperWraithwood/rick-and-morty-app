@@ -1,8 +1,8 @@
 {
   "name": "rick-and-morty",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "http://jasperwraithwood.github.io/rick-and-morty-app",
+  "private": false,
+  "homepage": "https://jasperwraithwood.github.io/rick-and-morty-app/",
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@tanstack/react-query": "^4.29.7",

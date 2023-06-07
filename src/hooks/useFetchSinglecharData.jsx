@@ -5,6 +5,8 @@ export const useFetchSinglecharData = (id) =>
     const response = await fetch(
       `https://rickandmortyapi.com/api/character/${id}`
     );
+
     const singlecharData = await response.json();
+
     return singlecharData;
   });
