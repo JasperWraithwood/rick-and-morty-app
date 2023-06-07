@@ -10,7 +10,9 @@ function CharacterCard({ img, name, status, id }) {
           <img src={img} alt="character" />
         </figure>
         <div className="card-body text-center">
-          <h2 className="card-title text-center text-2xl">{name}</h2>
+          <h2 className="card-title text-center text-2xl h-14 overflow-hidden">
+            {name}
+          </h2>
           <p
             className={`text-xl ${
               status === "Alive"
