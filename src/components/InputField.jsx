@@ -15,7 +15,7 @@ function InputField({ status, setStatus, handleSearchClick }) {
 
   return (
     <div className="w-full flex justify-center my-5 ">
-      <form className="w-full sm:w-1/2 flex flex-col sm:flex-row justify-between border p-2 rounded-md bg-white">
+      <form className="w-full h-32 flex justify-between p-2 rounded-md bg-white flex-col md:flex-row md:h-14 md:w-1/3">
         <input
           className="flex-grow mr-2 outline-none"
           onChange={handleSearchChange}
@@ -24,7 +24,7 @@ function InputField({ status, setStatus, handleSearchClick }) {
           value={searchName || ""}
         />
         <select
-          className="mr-2 outline-none text-center border-l-2"
+          className="mr-2 outline-none text-center border-l-2 h-10"
           onChange={handleStatusChange}
           value={status}
         >

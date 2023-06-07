@@ -30,7 +30,7 @@ function Episode() {
 
   if (isLoading || isCharactersLoading) return "Loading";
 
-  const fields = [
+  const episodeField = [
     { title: "Name", value: episodeData.name },
     { title: "Air date", value: episodeData.air_date },
     { title: "Episode", value: episodeData.episode },
@@ -47,7 +47,7 @@ function Episode() {
               className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
             />
             <div>
-              {fields.map((field, index) => (
+              {episodeField.map((field, index) => (
                 <InformationField
                   key={index}
                   title={field.title}

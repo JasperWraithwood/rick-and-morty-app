@@ -12,7 +12,7 @@ function Header() {
           The Rick and Morty App
         </h1>
       </Link>
-      <div className="pl-48">
+      <div className="md:pl-48 pl-32">
         <EntryPageButton moveToPage="Characters" />
         <EntryPageButton moveToPage="Locations" />
         <EntryPageButton moveToPage="Episodes" />

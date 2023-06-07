@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useFetchCharData } from "../hooks/useFetchCharData.jsx";
 import useUrlQuery from "../hooks/useUrlQuery.js";
@@ -21,6 +21,15 @@ function Characters() {
     searchButtonClicked ? searchName : null,
     status
   );
+
+  useEffect(() => {
+    if (isError) {
+      alert(`An error has occurred: wrong name search or ${error.message}`);
+      setSearchName(null);
+      setSearchButtonClicked(false);
+      updateQueryParam("name", null);
+    }
+  }, [isError, error, updateQueryParam]);
 
   if (isLoading) return "Loading";
 

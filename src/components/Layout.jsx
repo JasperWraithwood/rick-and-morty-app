@@ -8,7 +8,7 @@ import backgroundImage from "../images/Rick_enjoys.webp";
 const Layout = () => {
   return (
     <div
-      className="relative h-screen w-screen overflow-y-auto bg-center bg-cover bg-no-repeat"
+      className="relative h-screen w-screen overflow-y-auto bg-center bg-cover bg-no-repeat bg-opacity-30"
       style={{
         backgroundImage: `url(${backgroundImage})`,
       }}
