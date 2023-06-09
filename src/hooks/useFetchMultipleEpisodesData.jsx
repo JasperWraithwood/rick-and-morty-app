@@ -2,11 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useFetchMultipleEpisodesData = (ids) =>
   useQuery(["episodes", ids], async () => {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/episode/${ids.join(",")}`
+    const fetchPromises = ids.map((id) =>
+      fetch(`https://rickandmortyapi.com/api/episode/${id}`).then((response) =>
+        response.json()
+      )
     );
 
-    const multipleEpisodesData = await response.json();
+    let episodesData = await Promise.all(fetchPromises);
 
-    return multipleEpisodesData;
+    if (!Array.isArray(episodesData)) {
+      episodesData = [episodesData];
+    }
+
+    return episodesData;
   });
