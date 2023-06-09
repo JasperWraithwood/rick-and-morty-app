@@ -53,6 +53,7 @@ function Characters() {
           status={status}
           setStatus={handleStatusChange}
           handleSearchClick={handleSearchClick}
+          charactersCount={data?.info?.count}
         />
       </div>
       {isError && <p>An error has occurred: {error.message}</p>}
